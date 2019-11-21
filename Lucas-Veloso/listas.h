@@ -22,6 +22,9 @@ public:
     Listas(QWidget *parent = nullptr);
     ~Listas();
 
+    int idCompras = 0;
+    int idTarefas = 0;
+
     void setFormatacaoCompras();
     void atualizarCompras(QVector<Compras> vetor);
 
@@ -36,6 +39,8 @@ private slots:
     void on_btnNLista_clicked();
 
     void on_btnAddCompras_clicked();
+
+    void on_tabelaListaDeCompras_cellChanged(int row, int column);
 
 private:
     Ui::Listas *ui;

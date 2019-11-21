@@ -15,7 +15,18 @@ bool Tarefa::setNome(const QString &value)
     else return true;
 }
 
+int Tarefa::getId() const
+{
+    return id;
+}
+
+void Tarefa::setId(int value)
+{
+    id = value;
+}
+
 Tarefa::Tarefa()
 {
     check = false;
+    id = 0;
 }

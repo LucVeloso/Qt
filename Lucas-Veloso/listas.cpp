@@ -36,6 +36,7 @@ void Listas::atualizarCompras(QVector<Compras> vetor){
         else ui->tabelaListaDeCompras->setItem(linha, 0, uncheck);
 
         ui->tabelaListaDeCompras->setItem(linha, 1, new QTableWidgetItem(show.getNome()));
+        ui->tabelaListaDeCompras->setItem(linha, 2, new QTableWidgetItem(QString::number(show.getQuantidade())));
 
         ui->tabelaListaDeCompras->setRowHeight(linha++, 5);
     }
@@ -80,6 +81,7 @@ void Listas::on_btnAddCompras_clicked()
         Compras temp;
 
         temp.setNome(nitem.ent.getNome());
+        temp.setId(idCompras++);
 
         compras[chave].push_back(temp);
         mostrarCompras.push_back(temp);
@@ -110,5 +112,29 @@ void Listas::on_btnAddCompras_clicked()
 //                qDebug() << t->horizontalHeaderItem(j)->text() << i;
 //        }
 //    } laço para varrer célular procurando por checkboxes
+
+}
+
+void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
+{
+
+    int proc = mostrarCompras[row].getId();
+
+    QVector<Compras> vetor = compras.second;
+
+    for(auto change : vetor){
+
+        if(proc == change.getId()){
+
+            switch(column){
+
+            case 0: break;
+            case 1: change.setNome(ui->tabelaListaDeCompras->item(row, column)->text());
+            }
+        }
+    }
+
+
+
 
 }
