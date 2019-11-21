@@ -17,5 +17,5 @@ bool Tarefa::setNome(const QString &value)
 
 Tarefa::Tarefa()
 {
-
+    check = false;
 }

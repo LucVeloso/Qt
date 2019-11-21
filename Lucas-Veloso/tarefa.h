@@ -9,10 +9,13 @@ class Tarefa
 
 private:
 
+
     QString nome;
 
 public:
     Tarefa();
+
+    bool check;
 
     QString getNome() const;
     bool setNome(const QString &value);

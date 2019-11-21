@@ -6,6 +6,7 @@ NItemDialog::NItemDialog(QWidget *parent) :
     ui(new Ui::NItemDialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Novo Item");
 }
 
 NItemDialog::~NItemDialog()
@@ -16,10 +17,9 @@ NItemDialog::~NItemDialog()
 void NItemDialog::on_btnAdd_clicked()
 {
     QString entrada = ui->NItemEnt->text();
-    QString erro = "Item inválido";
     if(ent.setNome(entrada)){
 
-        ui->msgErro->setText(erro);
+        ui->msgErro->setText("Item inválido");
     }
     else{
 

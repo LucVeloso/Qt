@@ -14,7 +14,34 @@ Listas::~Listas()
     delete ui;
 }
 
-void Listas::setFormatacao(){
+void Listas::atualizarCompras(QVector<Compras> vetor){
+
+    int linha = 0;
+
+    ui->tabelaListaDeCompras->setRowCount(0);
+
+
+
+    for(auto show : vetor){
+
+        QTableWidgetItem *uncheck = new QTableWidgetItem();
+        QTableWidgetItem *check = new QTableWidgetItem();
+
+        uncheck->setCheckState(Qt::Unchecked);
+        check->setCheckState(Qt::Checked);
+
+        ui->tabelaListaDeCompras->insertRow(linha);
+
+        if(show.check) ui->tabelaListaDeCompras->setItem(linha, 0, check);
+        else ui->tabelaListaDeCompras->setItem(linha, 0, uncheck);
+
+        ui->tabelaListaDeCompras->setItem(linha, 1, new QTableWidgetItem(show.getNome()));
+
+        ui->tabelaListaDeCompras->setRowHeight(linha++, 5);
+    }
+}
+
+void Listas::setFormatacaoCompras(){
 
     ui->tabelaListaDeCompras->setColumnWidth(0,20);
     ui->tabelaListaDeCompras->setColumnWidth(1,205);
@@ -25,30 +52,54 @@ void Listas::setFormatacao(){
 
 void Listas::on_btnNLista_clicked()
 {
-    ui->paginas->setCurrentIndex(1);
-    setFormatacao();
+    QString lista;
+    NListaDialog nlista;
 
+    nlista.setModal(true);
+    nlista.exec();
+
+    if(nlista.novo){
+        if(nlista.tipo == 'c'){
+            ui->paginas->setCurrentIndex(1);
+            setFormatacaoCompras();
+            ui->tituloListaCompras->setText(nlista.nomeNLista.toUpper());
+        }
+        else ui->paginas->setCurrentIndex(2);
+    }
 }
 
-void Listas::on_btnAdd_clicked()
+void Listas::on_btnAddCompras_clicked()
 {
+    QString chave = ui->tituloListaCompras->text();
+    NItemDialog nitem;
     nitem.setModal(true);
     nitem.exec();
 
     if(nitem.novo){
-    QString nome = nitem.ent.getNome();
 
-    int linhas = ui->tabelaListaDeCompras->rowCount();
+        Compras temp;
 
-    QTableWidgetItem *check = new QTableWidgetItem();
+        temp.setNome(nitem.ent.getNome());
 
-    check->setCheckState(Qt::Unchecked);
+        compras[chave].push_back(temp);
+        mostrarCompras.push_back(temp);
 
-    ui->tabelaListaDeCompras->insertRow(linhas);
-    ui->tabelaListaDeCompras->setItem(linhas, 0, check);
-    ui->tabelaListaDeCompras->setItem(linhas, 1, new QTableWidgetItem(nome));
+        atualizarCompras(mostrarCompras);
 
-    ui->tabelaListaDeCompras->setRowHeight(linhas, 5);
+
+//        QString nome = nitem.ent.getNome();
+
+//        int linhas = ui->tabelaListaDeCompras->rowCount();
+
+//        QTableWidgetItem *check = new QTableWidgetItem();
+
+//        check->setCheckState(Qt::Unchecked);
+
+//        ui->tabelaListaDeCompras->insertRow(linhas);
+//        ui->tabelaListaDeCompras->setItem(linhas, 0, check);
+//        ui->tabelaListaDeCompras->setItem(linhas, 1, new QTableWidgetItem(nome));
+
+//        ui->tabelaListaDeCompras->setRowHeight(linhas, 5);
     }
 
 //    for (int i = 0; i < t->rowCount(); i++) {

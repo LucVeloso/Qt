@@ -16,19 +16,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    compras.cpp \
     main.cpp \
     listas.cpp \
     nitemdialog.cpp \
+    nlistadialog.cpp \
     tarefa.cpp
 
 HEADERS += \
+    compras.h \
     listas.h \
     nitemdialog.h \
+    nlistadialog.h \
     tarefa.h
 
 FORMS += \
     listas.ui \
-    nitemdialog.ui
+    nitemdialog.ui \
+    nlistadialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

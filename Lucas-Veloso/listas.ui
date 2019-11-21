@@ -69,95 +69,80 @@
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="btnNLista">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>40</x>
         <y>110</y>
         <width>421</width>
-        <height>101</height>
+        <height>102</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(0, 0, 0, 10);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>120</y>
-        <width>381</width>
-        <height>77</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetNoConstraint</enum>
-       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="leftMargin">
         <number>20</number>
        </property>
-       <item row="1" column="1">
-        <widget class="QLabel" name="descNLista">
-         <property name="text">
-          <string>Cria nova lista em branco</string>
+       <item>
+        <widget class="QPushButton" name="btnNLista">
+         <property name="enabled">
+          <bool>true</bool>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignHCenter|Qt::AlignTop</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="2">
-        <widget class="QFrame" name="frame">
          <property name="minimumSize">
           <size>
-           <width>75</width>
-           <height>75</height>
+           <width>0</width>
+           <height>80</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>75</width>
-           <height>75</height>
+           <width>80</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">image: url(:/icones_menu/img_82026.png);</string>
+          <string notr="true">border-image: url(:/icones_menu/img_82026.png);</string>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+         <property name="text">
+          <string/>
          </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+         <property name="checkable">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="tituloNLista">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetNoConstraint</enum>
          </property>
-         <property name="text">
-          <string>ADICIONAR NOVA LISTA</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
+         <item row="0" column="0">
+          <widget class="QLabel" name="tituloNLista">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>ADICIONAR NOVA LISTA</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="descNLista">
+           <property name="text">
+            <string>Cria nova lista em branco</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -181,7 +166,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>25</x>
@@ -192,7 +177,7 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="Tapp_4">
+         <widget class="QLabel" name="tituloListaCompras">
           <property name="font">
            <font>
             <pointsize>10</pointsize>
@@ -209,7 +194,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnAdd">
+         <widget class="QPushButton" name="btnAddCompras">
           <property name="maximumSize">
            <size>
             <width>75</width>
@@ -271,7 +256,82 @@
       </column>
      </widget>
     </widget>
-    <widget class="QWidget" name="listaDeTarefas"/>
+    <widget class="QWidget" name="listaDeTarefas">
+     <widget class="QFrame" name="topBarListaDeTarefas">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>500</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(108, 194, 74)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>15</y>
+         <width>451</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="tituloListaTarefas">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>LISTAS DE TAREFAS</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAddTarefas">
+          <property name="maximumSize">
+           <size>
+            <width>75</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Adicionar item</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tabelaListaDeTarefas">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>460</width>
+        <height>320</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="listasSalvas"/>
    </widget>
   </widget>

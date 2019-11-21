@@ -17,7 +17,7 @@ public:
     ~NItemDialog();
 
     Tarefa ent;
-    bool novo;
+    bool novo = false;
 
 private slots:
     void on_btnAdd_clicked();
