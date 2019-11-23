@@ -26,7 +26,7 @@ public:
     int idTarefas = 0;
 
     void setFormatacaoCompras();
-    void atualizarCompras(QVector<Compras> vetor);
+    void atualizarCompras();
 
     QMap<QString, QVector<Tarefa>> tarefas;
     QMap<QString, QVector<Compras>> compras;

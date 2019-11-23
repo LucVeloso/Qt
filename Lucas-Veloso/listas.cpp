@@ -14,7 +14,7 @@ Listas::~Listas()
     delete ui;
 }
 
-void Listas::atualizarCompras(QVector<Compras> vetor){
+void Listas::atualizarCompras(){
 
     int linha = 0;
 
@@ -22,7 +22,7 @@ void Listas::atualizarCompras(QVector<Compras> vetor){
 
 
 
-    for(auto show : vetor){
+    for(auto show : mostrarCompras){
 
         QTableWidgetItem *uncheck = new QTableWidgetItem();
         QTableWidgetItem *check = new QTableWidgetItem();
@@ -37,6 +37,11 @@ void Listas::atualizarCompras(QVector<Compras> vetor){
 
         ui->tabelaListaDeCompras->setItem(linha, 1, new QTableWidgetItem(show.getNome()));
         ui->tabelaListaDeCompras->setItem(linha, 2, new QTableWidgetItem(QString::number(show.getQuantidade())));
+
+        if(show.getPreco() != 0){
+            ui->tabelaListaDeCompras->setItem(linha, 3, new QTableWidgetItem(QString::number(show.getPreco())));
+            ui->tabelaListaDeCompras->setItem(linha, 4, new QTableWidgetItem(QString::number(show.getTotal())));
+        }
 
         ui->tabelaListaDeCompras->setRowHeight(linha++, 5);
     }
@@ -86,7 +91,7 @@ void Listas::on_btnAddCompras_clicked()
         compras[chave].push_back(temp);
         mostrarCompras.push_back(temp);
 
-        atualizarCompras(mostrarCompras);
+        atualizarCompras();
 
 
 //        QString nome = nitem.ent.getNome();
@@ -117,12 +122,28 @@ void Listas::on_btnAddCompras_clicked()
 
 void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
 {
+    switch(column){
+
+    case 0: break;
+    case 1: mostrarCompras[row].setNome(ui->tabelaListaDeCompras->item(row, column)->text());
+            break;
+    case 2: mostrarCompras[row].setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt());
+            break;
+    case 3: mostrarCompras[row].setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat());
+            break;
+    case 4: break;
+    }
+
 
     int proc = mostrarCompras[row].getId();
 
-    QVector<Compras> vetor = compras.second;
+    QVector<Compras> vetor;
 
-    for(auto change : vetor){
+    for(auto nomeVetor : compras){
+        vetor = nomeVetor;
+    }
+
+    for(auto &change : vetor){
 
         if(proc == change.getId()){
 
@@ -130,11 +151,15 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
 
             case 0: break;
             case 1: change.setNome(ui->tabelaListaDeCompras->item(row, column)->text());
+                    break;
+            case 2: change.setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt());
+                    break;
+            case 3: change.setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat());
+                    break;
+            case 4: break;
             }
         }
     }
 
-
-
-
+    //atualizarCompras();
 }

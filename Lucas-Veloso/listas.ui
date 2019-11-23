@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Listas</string>
   </property>
+  <property name="statusTip">
+   <string/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="paginas">
     <property name="geometry">
@@ -34,6 +37,9 @@
       <width>500</width>
       <height>480</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(212, 241, 244)</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -49,7 +55,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(108, 194, 74)</string>
+       <string notr="true">background-color:rgb(4, 118, 208)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -60,8 +66,8 @@
       <widget class="QLabel" name="Tapp">
        <property name="geometry">
         <rect>
-         <x>25</x>
-         <y>20</y>
+         <x>21</x>
+         <y>18</y>
          <width>47</width>
          <height>13</height>
         </rect>
@@ -72,6 +78,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>LISTAS</string>
@@ -92,7 +101,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="leftMargin">
-        <number>20</number>
+        <number>10</number>
        </property>
        <item>
         <widget class="QPushButton" name="btnNLista">
@@ -102,17 +111,18 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>80</height>
+           <height>90</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
+           <width>90</width>
            <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border-image: url(:/icones_menu/img_82026.png);</string>
+          <string notr="true">border-image: url(:/icones_menu/img_82026.png);
+color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
           <string/>
@@ -131,10 +141,13 @@
           <widget class="QLabel" name="tituloNLista">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>15</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0)</string>
            </property>
            <property name="text">
             <string>ADICIONAR NOVA LISTA</string>
@@ -146,8 +159,16 @@
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="descNLista">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);</string>
+           </property>
            <property name="text">
-            <string>Cria nova lista em branco</string>
+            <string>Criar nova lista em branco</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -157,6 +178,19 @@
         </layout>
        </item>
       </layout>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>240</y>
+        <width>421</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="listaDeCompras">
@@ -170,7 +204,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(108, 194, 74)</string>
+       <string notr="true">background-color:rgb(4, 118, 208)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -181,9 +215,9 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>25</x>
-         <y>15</y>
-         <width>451</width>
+         <x>20</x>
+         <y>10</y>
+         <width>461</width>
          <height>30</height>
         </rect>
        </property>
@@ -197,6 +231,9 @@
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>LISTAS DE COMPRAS</string>
           </property>
@@ -209,12 +246,13 @@
          <widget class="QPushButton" name="btnAddCompras">
           <property name="maximumSize">
            <size>
-            <width>75</width>
+            <width>90</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">background-color: rgb(5, 68, 94);
+color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string>Adicionar item</string>
@@ -228,15 +266,18 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>69</y>
         <width>460</width>
-        <height>320</height>
+        <height>341</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <pointsize>8</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <attribute name="horizontalHeaderHighlightSections">
        <bool>false</bool>
@@ -279,7 +320,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(108, 194, 74)</string>
+       <string notr="true">background-color:rgb(4, 118, 208)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -290,9 +331,9 @@
       <widget class="QWidget" name="layoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>25</x>
-         <y>15</y>
-         <width>451</width>
+         <x>20</x>
+         <y>10</y>
+         <width>461</width>
          <height>30</height>
         </rect>
        </property>
@@ -306,6 +347,9 @@
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>LISTAS DE TAREFAS</string>
           </property>
@@ -318,12 +362,13 @@
          <widget class="QPushButton" name="btnAddTarefas">
           <property name="maximumSize">
            <size>
-            <width>75</width>
+            <width>90</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">background-color: rgb(5, 68, 94);
+color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string>Adicionar item</string>
@@ -337,11 +382,27 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>69</y>
         <width>460</width>
-        <height>320</height>
+        <height>341</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string/>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tarefas</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="listasSalvas"/>
@@ -353,7 +414,7 @@
      <x>0</x>
      <y>0</y>
      <width>500</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

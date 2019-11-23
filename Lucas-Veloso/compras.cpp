@@ -15,6 +15,7 @@ int Compras::getQuantidade() const
 void Compras::setQuantidade(int value)
 {
     quantidade = value;
+    setTotal();
 }
 
 float Compras::getPreco() const
@@ -25,6 +26,7 @@ float Compras::getPreco() const
 void Compras::setPreco(float value)
 {
     preco = value;
+    setTotal();
 }
 
 float Compras::getTotal() const
@@ -32,7 +34,7 @@ float Compras::getTotal() const
     return total;
 }
 
-void Compras::setTotal(float value)
+void Compras::setTotal()
 {
-    total = value;
+    total = quantidade * preco;
 }

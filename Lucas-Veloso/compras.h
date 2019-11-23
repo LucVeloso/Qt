@@ -16,7 +16,7 @@ public:
     void setPreco(float value);
 
     float getTotal() const;
-    void setTotal(float value);
+    void setTotal();
 
 private:
 
