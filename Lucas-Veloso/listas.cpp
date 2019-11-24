@@ -20,8 +20,6 @@ void Listas::atualizarCompras(){
 
     ui->tabelaListaDeCompras->setRowCount(0);
 
-
-
     for(auto show : mostrarCompras){
 
         QTableWidgetItem *uncheck = new QTableWidgetItem();
@@ -50,10 +48,16 @@ void Listas::atualizarCompras(){
 void Listas::setFormatacaoCompras(){
 
     ui->tabelaListaDeCompras->setColumnWidth(0,20);
-    ui->tabelaListaDeCompras->setColumnWidth(1,205);
+    ui->tabelaListaDeCompras->setColumnWidth(1,204);
     ui->tabelaListaDeCompras->setColumnWidth(2,50);
     ui->tabelaListaDeCompras->setColumnWidth(3,75);
     ui->tabelaListaDeCompras->setColumnWidth(4,75);
+
+    QHeaderView *headerGoods = ui->tabelaListaDeCompras->horizontalHeader();
+
+    headerGoods->setSortIndicator(0, Qt::DescendingOrder);
+    headerGoods->setSortIndicatorShown(false);
+    connect(headerGoods, SIGNAL(sectionClicked(int)), ui->tabelaListaDeCompras, SLOT (sortByColumn(int)));
 }
 
 void Listas::on_btnNLista_clicked()
@@ -66,8 +70,11 @@ void Listas::on_btnNLista_clicked()
 
     if(nlista.novo){
         if(nlista.tipo == 'c'){
+
             ui->paginas->setCurrentIndex(1);
+
             setFormatacaoCompras();
+
             ui->tituloListaCompras->setText(nlista.nomeNLista.toUpper());
         }
         else ui->paginas->setCurrentIndex(2);
@@ -76,6 +83,7 @@ void Listas::on_btnNLista_clicked()
 
 void Listas::on_btnAddCompras_clicked()
 {
+
     QString chave = ui->tituloListaCompras->text();
     NItemDialog nitem;
     nitem.setModal(true);
@@ -92,22 +100,8 @@ void Listas::on_btnAddCompras_clicked()
         mostrarCompras.push_back(temp);
 
         atualizarCompras();
-
-
-//        QString nome = nitem.ent.getNome();
-
-//        int linhas = ui->tabelaListaDeCompras->rowCount();
-
-//        QTableWidgetItem *check = new QTableWidgetItem();
-
-//        check->setCheckState(Qt::Unchecked);
-
-//        ui->tabelaListaDeCompras->insertRow(linhas);
-//        ui->tabelaListaDeCompras->setItem(linhas, 0, check);
-//        ui->tabelaListaDeCompras->setItem(linhas, 1, new QTableWidgetItem(nome));
-
-//        ui->tabelaListaDeCompras->setRowHeight(linhas, 5);
     }
+}
 
 //    for (int i = 0; i < t->rowCount(); i++) {
 //        for (int j = 0; j < t->columnCount(); j++) {
@@ -117,8 +111,6 @@ void Listas::on_btnAddCompras_clicked()
 //                qDebug() << t->horizontalHeaderItem(j)->text() << i;
 //        }
 //    } laço para varrer célular procurando por checkboxes
-
-}
 
 void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
 {
@@ -133,7 +125,6 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
             break;
     case 4: break;
     }
-
 
     int proc = mostrarCompras[row].getId();
 
@@ -161,5 +152,8 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
         }
     }
 
+
+
     //atualizarCompras();
 }
+

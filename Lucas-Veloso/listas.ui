@@ -212,7 +212,7 @@ color: rgb(255, 255, 255);</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_3">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -252,6 +252,7 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(5, 68, 94);
+border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
@@ -418,7 +419,11 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
