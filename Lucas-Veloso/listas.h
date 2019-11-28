@@ -24,6 +24,7 @@ public:
 
     int idCompras = 0;
     int idTarefas = 0;
+    //bool noBug = true;
 
     void setFormatacaoCompras();
     void atualizarCompras();
@@ -41,6 +42,12 @@ private slots:
     void on_btnAddCompras_clicked();
 
     void on_tabelaListaDeCompras_cellChanged(int row, int column);
+
+    void on_btnOcultarSelecionados_clicked();
+
+    void on_btnApagarSelecionados_clicked();
+
+    void on_ExibirOcultos_clicked();
 
 private:
     Ui::Listas *ui;

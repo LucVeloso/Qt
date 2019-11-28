@@ -39,10 +39,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(212, 241, 244)</string>
+     <string notr="true">
+</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="home">
      <widget class="QFrame" name="topBarHome">
@@ -308,6 +309,48 @@ color: rgb(255, 255, 255);</string>
         <string>TOTAL</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="btnOcultarSelecionados">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>420</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ocultar Selecionador</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnApagarSelecionados">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>450</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 57, 57);</string>
+      </property>
+      <property name="text">
+       <string>Apagar Selecionados</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ExibirOcultos">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>420</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exibir ocultos</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="listaDeTarefas">

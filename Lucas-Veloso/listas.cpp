@@ -43,6 +43,8 @@ void Listas::atualizarCompras(){
 
         ui->tabelaListaDeCompras->setRowHeight(linha++, 5);
     }
+
+    //noBug = false;
 }
 
 void Listas::setFormatacaoCompras(){
@@ -89,6 +91,8 @@ void Listas::on_btnAddCompras_clicked()
     nitem.setModal(true);
     nitem.exec();
 
+    //noBug = false;
+
     if(nitem.novo){
 
         Compras temp;
@@ -103,14 +107,7 @@ void Listas::on_btnAddCompras_clicked()
     }
 }
 
-//    for (int i = 0; i < t->rowCount(); i++) {
-//        for (int j = 0; j < t->columnCount(); j++) {
-//            QWidget *pWidget = t->cellWidget(i, j);
-//            QCheckBox *checkbox = pWidget->findChild<QCheckBox *>();
-//            if (checkbox && checkbox->isChecked())
-//                qDebug() << t->horizontalHeaderItem(j)->text() << i;
-//        }
-//    } laço para varrer célular procurando por checkboxes
+
 
 void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
 {
@@ -127,6 +124,8 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
     }
 
     int proc = mostrarCompras[row].getId();
+
+    //bool mudanca = true;
 
     QVector<Compras> vetor;
 
@@ -152,8 +151,35 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
         }
     }
 
-
-
-    //atualizarCompras();
+//    if(mudanca == true && noBug == true) atualizarCompras();
+//    else noBug = true;
 }
 
+
+void Listas::on_btnOcultarSelecionados_clicked()
+{
+    for (int i = 0; i < ui->tabelaListaDeCompras->rowCount(); i++) {
+        QTableWidgetItem *check = ui->tabelaListaDeCompras->item(i,0);
+        if (check->checkState()) ui->tabelaListaDeCompras->hideRow(i);
+    }
+}
+
+void Listas::on_btnApagarSelecionados_clicked()
+{
+    for (int i = 0; i < ui->tabelaListaDeCompras->rowCount(); i++) {
+        QTableWidgetItem *check = ui->tabelaListaDeCompras->item(i,0);
+        if (check->checkState()){
+
+            mostrarCompras.erase(mostrarCompras.begin()+i);
+        }
+    }
+    atualizarCompras();
+}
+
+void Listas::on_ExibirOcultos_clicked()
+{
+    for (int i = 0; i < ui->tabelaListaDeCompras->rowCount(); i++) {
+        QTableWidgetItem *check = ui->tabelaListaDeCompras->item(i,0);
+        if (check->checkState()) ui->tabelaListaDeCompras->showRow(i);
+    }
+}
