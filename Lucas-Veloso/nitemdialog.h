@@ -19,11 +19,13 @@ public:
     ~NItemDialog();
 
     Tarefa ent;
+    Compras ent1;
     int novo = 0;
 
     bool proc(QString item);
 
-    void preencherVetor(QVector<Compras> v);
+    void preencherVetor(QVector<Compras> &v);
+    QVector<Compras> comp;
 
 private slots:
 
@@ -35,7 +37,7 @@ private slots:
 
 private:
     Ui::NItemDialog *ui;
-    QVector<Compras> comp;
+
 
 };
 

@@ -1,6 +1,6 @@
 #include "nitemdialog.h"
 #include "ui_nitemdialog.h"
-
+#include <QDebug>
 NItemDialog::NItemDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NItemDialog)
@@ -16,14 +16,14 @@ NItemDialog::~NItemDialog()
 
 bool NItemDialog::proc(QString item)
 {
-    for(auto proc : comp){
+    for(auto &proc : comp){
         if(proc.getNome() == item){
-            ui->NItemTexto->setText(item); return true;}
+            return true;}
     }
     return false;
 }
 
-void NItemDialog::preencherVetor(QVector<Compras> v)
+void NItemDialog::preencherVetor(QVector<Compras> &v)
 {
     comp = v;
 }
@@ -32,7 +32,7 @@ void NItemDialog::on_btnAdd_clicked()
 {
     QString entrada = ui->NItemEnt->text();
 
-    if(proc(entrada) or ent.setNome(entrada)) ui->msgErro->setText("Item inválido");
+    if(proc(entrada) or ent1.setNome(entrada)) ui->msgErro->setText("Item inválido");
     else{
 
         ui->NItemEnt->clear();

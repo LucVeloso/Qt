@@ -1,6 +1,6 @@
 #include "listas.h"
 #include "ui_listas.h"
-
+#include <QDebug>
 
 Listas::Listas(QWidget *parent)
     : QMainWindow(parent)
@@ -100,16 +100,16 @@ void Listas::on_btnNLista_clicked()
 void Listas::on_btnAddCompras_clicked()
 {
     NItemDialog nitem;
+    nitem.preencherVetor(compras[nomeArquivoAtual]);
+
     nitem.setModal(true);
     nitem.exec();
-
-    nitem.preencherVetor(compras[nomeArquivoAtual]);
 
     if(nitem.novo){
 
         Compras temp;
 
-        temp.setNome(nitem.ent.getNome());
+        temp.setNome(nitem.ent1.getNome());
         temp.setId(idCompras++);
 
         setNAA(ui->tituloListaCompras->text());

@@ -93,13 +93,13 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>230</y>
-        <width>671</width>
+        <x>60</x>
+        <y>180</y>
+        <width>611</width>
         <height>102</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="layoutTest">
        <property name="leftMargin">
         <number>10</number>
        </property>
@@ -183,7 +183,7 @@ color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>410</y>
+        <y>380</y>
         <width>671</width>
         <height>16</height>
        </rect>
@@ -195,9 +195,9 @@ color: rgb(255, 255, 255);</string>
      <widget class="QWidget" name="layoutWidget_4">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>520</y>
-        <width>671</width>
+        <x>60</x>
+        <y>500</y>
+        <width>611</width>
         <height>102</height>
        </rect>
       </property>
@@ -687,7 +687,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>750</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
