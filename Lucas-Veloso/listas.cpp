@@ -22,6 +22,8 @@ void Listas::atualizarCompras(){
 
     for(auto show : mostrarCompras){
 
+        add = false;
+
         QTableWidgetItem *uncheck = new QTableWidgetItem();
         QTableWidgetItem *check = new QTableWidgetItem();
 
@@ -44,16 +46,21 @@ void Listas::atualizarCompras(){
         ui->tabelaListaDeCompras->setRowHeight(linha++, 5);
     }
 
-    //noBug = false;
+    add = true;
+}
+
+void Listas::setNAA(QString temp)
+{
+    nomeArquivoAtual = temp;
 }
 
 void Listas::setFormatacaoCompras(){
 
-    ui->tabelaListaDeCompras->setColumnWidth(0,20);
-    ui->tabelaListaDeCompras->setColumnWidth(1,204);
-    ui->tabelaListaDeCompras->setColumnWidth(2,50);
-    ui->tabelaListaDeCompras->setColumnWidth(3,75);
-    ui->tabelaListaDeCompras->setColumnWidth(4,75);
+    ui->tabelaListaDeCompras->setColumnWidth(0,5);
+    ui->tabelaListaDeCompras->setColumnWidth(1,405);
+    ui->tabelaListaDeCompras->setColumnWidth(2,90);
+    ui->tabelaListaDeCompras->setColumnWidth(3,80);
+    ui->tabelaListaDeCompras->setColumnWidth(4,80);
 
     QHeaderView *headerGoods = ui->tabelaListaDeCompras->horizontalHeader();
 
@@ -91,14 +98,14 @@ void Listas::on_btnAddCompras_clicked()
     nitem.setModal(true);
     nitem.exec();
 
-    //noBug = false;
-
     if(nitem.novo){
 
         Compras temp;
 
         temp.setNome(nitem.ent.getNome());
         temp.setId(idCompras++);
+
+        setNAA(chave);
 
         compras[chave].push_back(temp);
         mostrarCompras.push_back(temp);
@@ -107,52 +114,64 @@ void Listas::on_btnAddCompras_clicked()
     }
 }
 
-
-
 void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
 {
-    switch(column){
+    if(add){
+        switch(column){
 
-    case 0: break;
-    case 1: mostrarCompras[row].setNome(ui->tabelaListaDeCompras->item(row, column)->text());
-            break;
-    case 2: mostrarCompras[row].setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt());
-            break;
-    case 3: mostrarCompras[row].setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat());
-            break;
-    case 4: break;
-    }
+        case 0: break;
+        case 1: if(mostrarCompras[row].setNome(ui->tabelaListaDeCompras->item(row, column)->text())){
+                    QMessageBox::warning(this, "Erro", "valor inválido!");
+                    break;}
+                else  break;
+        case 2: if(mostrarCompras[row].setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt())){
+                QMessageBox::warning(this, "Erro", "valor inválido!");
+                break;}
+            else  break;
+        case 3: if(mostrarCompras[row].setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat())){
+                    QMessageBox::warning(this, "Erro", "valor inválido!");
+                    break;}
+                else  break;
+        case 4: break;
+        }
 
-    int proc = mostrarCompras[row].getId();
+        int proc = mostrarCompras[row].getId();
 
-    //bool mudanca = true;
+        QVector<Compras> vetor;
 
-    QVector<Compras> vetor;
+        for(auto nomeVetor : compras){
+            vetor = nomeVetor;
+        }
 
-    for(auto nomeVetor : compras){
-        vetor = nomeVetor;
-    }
+        for(auto &change : vetor){
 
-    for(auto &change : vetor){
+            if(proc == change.getId()){
 
-        if(proc == change.getId()){
+                switch(column){
 
-            switch(column){
+                case 0: break;
+                case 1: if(change.setNome(ui->tabelaListaDeCompras->item(row, column)->text())){
+                            QMessageBox::warning(this, "Erro", "valor inválido!");
+                            break;}
+                        else  break;
+                case 2: if(change.setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt())){
+                            QMessageBox::warning(this, "Erro", "valor inválido!");
+                            break;}
+                        else  break;
+                case 3: if(change.setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat())){
+                            QMessageBox::warning(this, "Erro", "valor inválido!");
+                            break;}
+                        else  break;
+                case 4: break;
 
-            case 0: break;
-            case 1: change.setNome(ui->tabelaListaDeCompras->item(row, column)->text());
-                    break;
-            case 2: change.setQuantidade(ui->tabelaListaDeCompras->item(row, column)->text().toInt());
-                    break;
-            case 3: change.setPreco(ui->tabelaListaDeCompras->item(row, column)->text().toFloat());
-                    break;
-            case 4: break;
+
+                }
+
             }
         }
+        if(column > 0)atualizarCompras();
     }
-
-//    if(mudanca == true && noBug == true) atualizarCompras();
-//    else noBug = true;
+    else add = false;
 }
 
 
@@ -166,7 +185,7 @@ void Listas::on_btnOcultarSelecionados_clicked()
 
 void Listas::on_btnApagarSelecionados_clicked()
 {
-    for (int i = 0; i < ui->tabelaListaDeCompras->rowCount(); i++) {
+    for (int i = ui->tabelaListaDeCompras->rowCount()-1; i >= 0; i--) {
         QTableWidgetItem *check = ui->tabelaListaDeCompras->item(i,0);
         if (check->checkState()){
 
@@ -182,4 +201,14 @@ void Listas::on_ExibirOcultos_clicked()
         QTableWidgetItem *check = ui->tabelaListaDeCompras->item(i,0);
         if (check->checkState()) ui->tabelaListaDeCompras->showRow(i);
     }
+}
+
+void Listas::on_btnListasSalvas_clicked()
+{
+    ui->paginas->setCurrentIndex(3);
+}
+
+void Listas::on_btnSalvarListaCompras_clicked()
+{
+    QFile arquivo(salvos+nomeArquivoAtual);
 }

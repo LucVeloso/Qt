@@ -10,10 +10,10 @@ public:
     Compras();
 
     int getQuantidade() const;
-    void setQuantidade(int value);
+    bool setQuantidade(int value);
 
     float getPreco() const;
-    void setPreco(float value);
+    bool setPreco(float value);
 
     float getTotal() const;
     void setTotal();

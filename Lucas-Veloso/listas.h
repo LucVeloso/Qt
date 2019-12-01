@@ -9,6 +9,8 @@
 #include "nlistadialog.h"
 #include <QMap>
 #include <QVector>
+#include <QFile>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Listas; }
@@ -24,10 +26,15 @@ public:
 
     int idCompras = 0;
     int idTarefas = 0;
-    //bool noBug = true;
+
+    QString salvos = "C:\Qt\Projetos\Lucas-Veloso\salvos";
+    QString templates = "C:\Qt\Projetos\Lucas-Veloso\templates";
+    QString nomeArquivoAtual;
+    bool add = true;
 
     void setFormatacaoCompras();
     void atualizarCompras();
+    void setNAA(QString temp);
 
     QMap<QString, QVector<Tarefa>> tarefas;
     QMap<QString, QVector<Compras>> compras;
@@ -35,7 +42,6 @@ public:
     QVector<Compras> mostrarCompras;
 
 private slots:
-
 
     void on_btnNLista_clicked();
 
@@ -48,6 +54,10 @@ private slots:
     void on_btnApagarSelecionados_clicked();
 
     void on_ExibirOcultos_clicked();
+
+    void on_btnListasSalvas_clicked();
+
+    void on_btnSalvarListaCompras_clicked();
 
 private:
     Ui::Listas *ui;

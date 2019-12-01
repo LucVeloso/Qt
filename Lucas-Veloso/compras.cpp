@@ -12,10 +12,15 @@ int Compras::getQuantidade() const
     return quantidade;
 }
 
-void Compras::setQuantidade(int value)
+bool Compras::setQuantidade(int value)
 {
-    quantidade = value;
-    setTotal();
+    if(value > 0)
+    {
+        quantidade = value;
+        setTotal();
+        return false;
+    }
+    else return true;
 }
 
 float Compras::getPreco() const
@@ -23,10 +28,15 @@ float Compras::getPreco() const
     return preco;
 }
 
-void Compras::setPreco(float value)
+bool Compras::setPreco(float value)
 {
-    preco = value;
-    setTotal();
+    if(value >= 0)
+    {
+        preco = value;
+        setTotal();
+        return false;
+    }
+    else return true;
 }
 
 float Compras::getTotal() const
