@@ -35,11 +35,10 @@ public:
     void setFormatacaoCompras();
     void atualizarCompras();
     void setNAA(QString temp);
+    bool procCompra(QString item);
 
     QMap<QString, QVector<Tarefa>> tarefas;
     QMap<QString, QVector<Compras>> compras;
-    QVector<Tarefa> mostrarTarefas;
-    QVector<Compras> mostrarCompras;
 
 private slots:
 

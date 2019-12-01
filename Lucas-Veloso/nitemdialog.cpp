@@ -14,13 +14,25 @@ NItemDialog::~NItemDialog()
     delete ui;
 }
 
+bool NItemDialog::proc(QString item)
+{
+    for(auto proc : comp){
+        if(proc.getNome() == item){
+            ui->NItemTexto->setText(item); return true;}
+    }
+    return false;
+}
+
+void NItemDialog::preencherVetor(QVector<Compras> v)
+{
+    comp = v;
+}
+
 void NItemDialog::on_btnAdd_clicked()
 {
     QString entrada = ui->NItemEnt->text();
-    if(ent.setNome(entrada)){
 
-        ui->msgErro->setText("Item inválido");
-    }
+    if(proc(entrada) or ent.setNome(entrada)) ui->msgErro->setText("Item inválido");
     else{
 
         ui->NItemEnt->clear();

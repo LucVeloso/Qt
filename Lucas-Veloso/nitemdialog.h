@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "tarefa.h"
+#include "compras.h"
+#include <QVector>
 
 namespace Ui {
 class NItemDialog;
@@ -17,15 +19,23 @@ public:
     ~NItemDialog();
 
     Tarefa ent;
-    bool novo = false;
+    int novo = 0;
+
+    bool proc(QString item);
+
+    void preencherVetor(QVector<Compras> v);
 
 private slots:
+
     void on_btnAdd_clicked();
 
     void on_btnCancelar_clicked();
 
+
+
 private:
     Ui::NItemDialog *ui;
+    QVector<Compras> comp;
 
 };
 
