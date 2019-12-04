@@ -28,6 +28,10 @@
   <property name="statusTip">
    <string/>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-color:rgb(85, 255, 255)</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="paginas">
     <property name="geometry">
@@ -39,7 +43,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(85, 255, 255)</string>
     </property>
     <property name="currentIndex">
      <number>0</number>

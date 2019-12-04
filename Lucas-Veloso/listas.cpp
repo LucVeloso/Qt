@@ -120,6 +120,8 @@ void Listas::on_btnAddCompras_clicked()
         compras[nomeArquivoAtual].push_back(temp);
 
         atualizarCompras();
+
+        on_btnOcultarSelecionados_clicked();
     }
 }
 
@@ -144,7 +146,10 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
                 qDebug() << ui->tabelaListaDeCompras->item(row, column)->text();
                 switch(column){
 
-                case 0: break;
+                case 0: if(ui->tabelaListaDeCompras->item(row, 0)->checkState())
+                            compras[nomeArquivoAtual][p].check = true;
+                        else compras[nomeArquivoAtual][p].check = false;
+                        break;
                 case 1: if(procCompra(ui->tabelaListaDeCompras->item(row, column)->text()) or compras[nomeArquivoAtual][p].setNome(ui->tabelaListaDeCompras->item(row, column)->text())){
                         QMessageBox::warning(this, "Erro", "valor inválido!");
                             break;}
@@ -171,7 +176,10 @@ void Listas::on_tabelaListaDeCompras_cellChanged(int row, int column)
             p++;
         }
 
-        if(column > 0)atualizarCompras();
+        if(column > 0){
+            atualizarCompras();
+            on_btnOcultarSelecionados_clicked();
+        }
     }
 
     else add = false;
