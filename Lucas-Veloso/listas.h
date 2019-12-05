@@ -68,6 +68,8 @@ private slots:
 
     void on_tabelaListaDeTarefas_cellChanged(int row, int column);
 
+    void on_btn_home_ListasSalvas_clicked();
+
 private:
     Ui::Listas *ui;
     //Tarefa tEnt;

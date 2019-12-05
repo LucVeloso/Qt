@@ -10,6 +10,16 @@ Listas::Listas(QWidget *parent)
     add = true;
     salvo = true;
 
+    QAction *acaoCompras = new QAction(this);
+    acaoCompras->setShortcut(QKeySequence("Ctrl+Q"));
+    connect(acaoCompras, SIGNAL(triggered()), this, SLOT(on_btnSalvarListaCompras_clicked()));
+    this->addAction(acaoCompras);
+
+    QAction *acaoTarefas = new QAction(this);
+    acaoTarefas->setShortcut(QKeySequence("Ctrl+E"));
+    connect(acaoTarefas, SIGNAL(triggered()), this, SLOT(on_btnSalvarListaTarefas_clicked()));
+    this->addAction(acaoTarefas);
+
     ui->tabelaListaDeCompras->setColumnWidth(0,5);
     ui->tabelaListaDeCompras->setColumnWidth(1,255);
     ui->tabelaListaDeCompras->setColumnWidth(2,90);
@@ -431,7 +441,7 @@ void Listas::on_btnApagarSelecionados_Tarefas_clicked()
         QTableWidgetItem *check = ui->tabelaListaDeTarefas->item(i,0);
 
         if (check->checkState()){
-            qDebug() << 50;
+
             QString temp = ui->tabelaListaDeTarefas->item(i,1)->text();
 
             for(int j = (tarefas[nomeArquivoAtual].size() - 1); j >= 0; j--){
@@ -442,4 +452,11 @@ void Listas::on_btnApagarSelecionados_Tarefas_clicked()
 
     atualizarTarefas();
     atualizarEstatisticasLTarefas();
+}
+
+////////////////////////////////////////////SALVAR///////////////////////////////////////////////////////////////////////////////////////////
+
+void Listas::on_btn_home_ListasSalvas_clicked()
+{
+    ui->paginas->setCurrentIndex(0);
 }

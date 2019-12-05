@@ -46,7 +46,7 @@ background-color:rgb(212, 241, 244)</string>
      <string notr="true">background-color: rgb(212, 241, 244)</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="home">
      <widget class="QFrame" name="topBarHome">
@@ -479,7 +479,7 @@ color: rgb(255, 255, 255);</string>
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -590,7 +590,7 @@ color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -840,7 +840,7 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>20</x>
         <y>510</y>
-        <width>61</width>
+        <width>63</width>
         <height>27</height>
        </rect>
       </property>
@@ -1038,10 +1038,42 @@ color: rgb(255, 255, 255);</string>
          <x>20</x>
          <y>10</y>
          <width>561</width>
-         <height>30</height>
+         <height>32</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="btn_home_ListasSalvas">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(5, 68, 94);
+image: url(:/icones/home.png);
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QLabel" name="tituloListaCompras_2">
           <property name="font">
@@ -1062,24 +1094,6 @@ color: rgb(255, 255, 255);</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="btnSalvarListaCompras_2">
-          <property name="maximumSize">
-           <size>
-            <width>90</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(5, 68, 94);
-border-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Carregar</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -1088,7 +1102,7 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>20</x>
         <y>60</y>
-        <width>571</width>
+        <width>561</width>
         <height>501</height>
        </rect>
       </property>
@@ -1115,7 +1129,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
