@@ -9,20 +9,19 @@ class Tarefa
 
 private:
 
-
     QString nome;
     int id;
+    bool check;
 
 public:
     Tarefa();
-
-    bool check;
-
 
     QString getNome() const;
     bool setNome(const QString &value);
     int getId() const;
     void setId(int value);
+    bool getCheck() const;
+    void setCheck(bool value);
 };
 
 #endif // TAREFA_H

@@ -22,10 +22,13 @@ public:
     Compras ent1;
     int novo = 0;
 
-    bool proc(QString item);
+    bool procComp(QString item);
+    bool procTar(QString item);
 
     void preencherVetor(QVector<Compras> &v);
+    void preencherVetor(QVector<Tarefa> &v);
     QVector<Compras> comp;
+    QVector<Tarefa> tar;
 
 private slots:
 

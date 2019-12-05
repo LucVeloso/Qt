@@ -25,6 +25,16 @@ void Tarefa::setId(int value)
     id = value;
 }
 
+bool Tarefa::getCheck() const
+{
+    return check;
+}
+
+void Tarefa::setCheck(bool value)
+{
+    check = value;
+}
+
 Tarefa::Tarefa()
 {
     check = false;

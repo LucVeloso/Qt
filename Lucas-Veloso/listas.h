@@ -24,21 +24,15 @@ public:
     Listas(QWidget *parent = nullptr);
     ~Listas();
 
-    int idCompras = 0;
-    int idTarefas = 0;
-
-    QString salvos = "C:\Qt\Projetos\Lucas-Veloso\salvos";
-    QString templates = "C:\Qt\Projetos\Lucas-Veloso\templates";
-    QString nomeArquivoAtual;
-    bool add = true;
-
-    void setFormatacaoCompras();
+////////////////////////////////////////////////
     void atualizarCompras();
+    void atualizarEstatisticasLCompras();
     void setNAA(QString temp);
     bool procCompra(QString item);
-
-    QMap<QString, QVector<Tarefa>> tarefas;
-    QMap<QString, QVector<Compras>> compras;
+////////////////////////////////////////////////
+    void atualizarTarefas();
+    void atualizarEstatisticasLTarefas();
+    bool procTarefa(QString item);
 
 private slots:
 
@@ -58,9 +52,36 @@ private slots:
 
     void on_btnSalvarListaCompras_clicked();
 
+    void on_btn_home_ListaCompras_clicked();
+
+    void on_btn_home_ListaTarefas_clicked();
+
+    void on_btnSalvarListaTarefas_clicked();
+
+    void on_btnOcultarSelecionados_Tarefas_clicked();
+
+    void on_ExibirOcultos_Tarefas_clicked();
+
+    void on_btnApagarSelecionados_Tarefas_clicked();
+
+    void on_btnAddTarefas_clicked();
+
+    void on_tabelaListaDeTarefas_cellChanged(int row, int column);
+
 private:
     Ui::Listas *ui;
-    Tarefa tEnt;
+    //Tarefa tEnt;
+    bool salvo;
+    bool add;
 
+    int idCompras = 0;
+    int idTarefas = 0;
+
+    QString salvos = "C:\Qt\Projetos\Lucas-Veloso\salvos";
+    QString templates = "C:\Qt\Projetos\Lucas-Veloso\templates";
+    QString nomeArquivoAtual;
+
+    QMap<QString, QVector<Tarefa>> tarefas;
+    QMap<QString, QVector<Compras>> compras;
 };
 #endif // LISTAS_H
