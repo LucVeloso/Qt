@@ -10,6 +10,27 @@ Listas::Listas(QWidget *parent)
     add = true;
     salvo = true;
 
+    caminho = qApp->applicationDirPath();
+    qDebug() << caminho;
+    QStringList op;
+
+    op = caminho.split("/");
+    caminho.clear();
+
+    for(int i = 0; i < op.size() - 2; i++){
+        caminho += op[i];
+        if(i < op.size() - 3) caminho += "/";
+    }
+
+    caminho += "/Lucas-Veloso";
+
+    caminhoPastaCompras = caminho + "/ComprasSalvas/";
+    caminhoPastaTCompras = caminho + "/ComprasTemplate/";
+    caminhoPastaTarefas = caminho + "/TarefasSalvas/";
+    caminhoPastaTTarefas = caminho + "/TarefasTemplate/";
+
+    qDebug() << caminho;
+
     QAction *acaoCompras = new QAction(this);
     acaoCompras->setShortcut(QKeySequence("Ctrl+Q"));
     connect(acaoCompras, SIGNAL(triggered()), this, SLOT(on_btnSalvarListaCompras_clicked()));
@@ -43,6 +64,7 @@ Listas::Listas(QWidget *parent)
     headerTarefas->setSortIndicator(1, Qt::DescendingOrder);
     headerTarefas->setSortIndicatorShown(false);
     connect(headerTarefas, SIGNAL(sectionClicked(int)), ui->tabelaListaDeTarefas, SLOT (sortByColumn(int)));
+
 }
 
 Listas::~Listas()
@@ -84,6 +106,13 @@ void Listas::on_btnNLista_clicked()
             ui->info_NIntensSelecionados_Tarefas->setText(QString::number(0));
         }
     }
+}
+
+void Listas::on_btnListasSalvas_clicked()
+{
+    ui->paginas->setCurrentIndex(3);
+
+
 }
 
 ///////////////////////////////////COMPRAS/////////////////////////////////////////////////////////////
@@ -150,6 +179,36 @@ void Listas::atualizarEstatisticasLCompras()
     ui->info_NItens_ListaCompras->setText(QString::number(compras[nomeArquivoAtual].size()));
     ui->info_ValorTotal->setText(QString::number(total));
     ui->info_NIntensSelecionados->setText(QString::number(itensSelecionados));
+}
+
+void Listas::on_btnSalvarListaCompras_clicked()
+{
+    salvo = true;
+
+    qDebug() << caminhoPastaCompras;
+
+    QFile arquivo(caminhoPastaCompras + nomeArquivoAtual + ".csv");
+
+    arquivo.open(QIODevice::WriteOnly);
+
+    for(auto a : compras[nomeArquivoAtual]){
+
+        QString check;
+
+        if(a.getCheck()) check = "V";
+        else check = "F";
+
+        QString linha = check + ";"
+                        + QString::number(a.getId()) + ";"
+                        + a.getNome() + ";"
+                        + QString::number(a.getQuantidade()) + ";"
+                        + QString::number(a.getPreco()) + ";"
+                        + "\n";
+
+        arquivo.write(linha.toLocal8Bit());
+    }
+
+    arquivo.close();
 }
 
 void Listas::on_btnAddCompras_clicked()
@@ -268,20 +327,31 @@ void Listas::on_btnApagarSelecionados_clicked()
     atualizarEstatisticasLCompras();
 }
 
-void Listas::on_btnListasSalvas_clicked()
-{
-    ui->paginas->setCurrentIndex(3);
-}
+void Listas::limparCompras(){
 
-void Listas::on_btnSalvarListaCompras_clicked()
-{
-    salvo = true;
-    QFile arquivo(salvos+nomeArquivoAtual);
+    ui->tabelaListaDeCompras->setRowCount(0);
+    ui->info_NIntensSelecionados->setText(QString::number(0));
+    ui->info_ValorTotal->setText(QString::number(0));
+    ui->info_NItens_ListaCompras->setText(QString::number(0));
 }
 
 void Listas::on_btn_home_ListaCompras_clicked()
 {
     if(salvo)ui->paginas->setCurrentIndex(0);
+    else{
+        QMessageBox::StandardButton resposta = QMessageBox::question(this, "Sair", "Sair sem salvar?", QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes);
+
+        if (resposta == QMessageBox::Yes){
+            on_btnSalvarListaCompras_clicked();
+            salvo = true;
+            ui->paginas->setCurrentIndex(0);
+            limparCompras();
+        }
+        else{
+            ui->paginas->setCurrentIndex(0);
+            limparCompras();
+        }
+    }
 }
 
 ///////////////////////////////////TAREFAS///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -328,7 +398,7 @@ void Listas::atualizarEstatisticasLTarefas()
     }
 
     ui->info_NItens_ListaTarefas->setText(QString::number(tarefas[nomeArquivoAtual].size()));
-    ui->info_NIntensSelecionados->setText(QString::number(itensSelecionados));
+    ui->info_NIntensSelecionados_Tarefas->setText(QString::number(itensSelecionados));
 }
 
 bool Listas::procTarefa(QString item){
@@ -339,15 +409,56 @@ bool Listas::procTarefa(QString item){
     return false;
 }
 
+void Listas::limparTarefas(){
+
+    ui->tabelaListaDeTarefas->setRowCount(0);
+    ui->info_NIntensSelecionados_Tarefas->setText(QString::number(0));
+    ui->info_NItens_ListaTarefas->setText(QString::number(0));
+}
+
 void Listas::on_btn_home_ListaTarefas_clicked()
 {
     if(salvo)ui->paginas->setCurrentIndex(0);
+    else{
+        QMessageBox::StandardButton resposta = QMessageBox::question(this, "Sair", "Sair sem salvar?", QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes);
+
+        if (resposta == QMessageBox::Yes){
+            on_btnSalvarListaTarefas_clicked();
+            salvo = true;
+            ui->paginas->setCurrentIndex(0);
+            limparTarefas();
+        }
+        else{
+            ui->paginas->setCurrentIndex(0);
+            limparTarefas();
+        }
+    }
 }
 
 void Listas::on_btnSalvarListaTarefas_clicked()
 {
     salvo = true;
-    QFile arquivo(salvos+nomeArquivoAtual);
+
+    QFile arquivo(caminhoPastaTarefas + nomeArquivoAtual + ".csv");
+
+    arquivo.open(QIODevice::WriteOnly);
+
+    for(auto a : tarefas[nomeArquivoAtual]){
+
+        QString check;
+
+        if(a.getCheck()) check = "V";
+        else check = "F";
+
+        QString linha = check + ";"
+                        + QString::number(a.getId()) + ";"
+                        + a.getNome() + ";"
+                        + "\n";
+
+        arquivo.write(linha.toLocal8Bit());
+    }
+
+    arquivo.close();
 }
 
 void Listas::on_btnAddTarefas_clicked()
@@ -454,7 +565,7 @@ void Listas::on_btnApagarSelecionados_Tarefas_clicked()
     atualizarEstatisticasLTarefas();
 }
 
-////////////////////////////////////////////SALVAR///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////CARREGAR///////////////////////////////////////////////////////////////////////////////////////////
 
 void Listas::on_btn_home_ListasSalvas_clicked()
 {

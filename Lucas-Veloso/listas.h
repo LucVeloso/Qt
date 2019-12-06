@@ -11,6 +11,8 @@
 #include <QVector>
 #include <QFile>
 #include <QMessageBox>
+#include <QStringList>
+#include <QFileDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Listas; }
@@ -29,10 +31,13 @@ public:
     void atualizarEstatisticasLCompras();
     void setNAA(QString temp);
     bool procCompra(QString item);
+    void limparCompras();
 ////////////////////////////////////////////////
     void atualizarTarefas();
     void atualizarEstatisticasLTarefas();
     bool procTarefa(QString item);
+    void limparTarefas();
+
 
 private slots:
 
@@ -79,8 +84,11 @@ private:
     int idCompras = 0;
     int idTarefas = 0;
 
-    QString salvos = "C:\Qt\Projetos\Lucas-Veloso\salvos";
-    QString templates = "C:\Qt\Projetos\Lucas-Veloso\templates";
+    QString caminho;
+    QString caminhoPastaCompras;
+    QString caminhoPastaTCompras;
+    QString caminhoPastaTarefas;
+    QString caminhoPastaTTarefas;
     QString nomeArquivoAtual;
 
     QMap<QString, QVector<Tarefa>> tarefas;

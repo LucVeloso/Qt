@@ -46,7 +46,7 @@ background-color:rgb(212, 241, 244)</string>
      <string notr="true">background-color: rgb(212, 241, 244)</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="home">
      <widget class="QFrame" name="topBarHome">
@@ -504,7 +504,7 @@ color: rgb(255, 255, 255);</string>
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string>0</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -615,7 +615,7 @@ color: rgb(255, 255, 255);</string>
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string>0</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -669,7 +669,7 @@ color: rgb(255, 255, 255);</string>
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string>0.00</string>
          </property>
         </widget>
        </item>
@@ -860,7 +860,7 @@ color: rgb(255, 255, 255);</string>
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string>0</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -913,7 +913,7 @@ color: rgb(255, 255, 255);</string>
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string>0</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -1129,7 +1129,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
