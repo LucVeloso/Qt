@@ -26,6 +26,7 @@ public:
     Listas(QWidget *parent = nullptr);
     ~Listas();
 
+    QString tirarExt(QString &a);
 ////////////////////////////////////////////////
     void atualizarCompras();
     void atualizarEstatisticasLCompras();

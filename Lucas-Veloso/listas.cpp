@@ -65,11 +65,53 @@ Listas::Listas(QWidget *parent)
     headerTarefas->setSortIndicatorShown(false);
     connect(headerTarefas, SIGNAL(sectionClicked(int)), ui->tabelaListaDeTarefas, SLOT (sortByColumn(int)));
 
+    QDir directory(caminhoPastaCompras);
+
+    QStringList entrada = directory.entryList(QStringList() << "*.csv", QDir::Files);
+
+    for(auto &mudar : entrada){
+
+
+        QFile arquivo(caminhoPastaCompras + mudar);
+
+        arquivo.open(QIODevice::ReadOnly);
+
+        QString linha;
+        QStringList dados;
+
+        QString chave = tirarExt(mudar);
+
+        while(!arquivo.atEnd()){
+            Compras temp;
+
+            linha = arquivo.readLine();
+            dados = linha.split(",");
+
+            if(dados[0] == "V") temp.setCheck(true);
+            else temp.setCheck(false);
+
+            temp.setId(dados[1].toInt());
+            temp.setNome(dados[2]);
+            temp.setQuantidade(dados[3].toInt());
+            temp.setPreco(dados[4].toFloat());
+
+            compras[mudar].push_back(temp);
+        }
+    }
+    //começo da função de carregar
 }
 
 Listas::~Listas()
 {
     delete ui;
+}
+
+QString Listas::tirarExt(QString &a){
+
+    QStringList l = a.split(".");
+    QString saida = l[0];
+
+    return saida;
 }
 
 ////////////////////////////////////HOME///////////////////////////////////////////////////////////
@@ -198,11 +240,11 @@ void Listas::on_btnSalvarListaCompras_clicked()
         if(a.getCheck()) check = "V";
         else check = "F";
 
-        QString linha = check + ";"
-                        + QString::number(a.getId()) + ";"
-                        + a.getNome() + ";"
-                        + QString::number(a.getQuantidade()) + ";"
-                        + QString::number(a.getPreco()) + ";"
+        QString linha = check + ","
+                        + QString::number(a.getId()) + ","
+                        + a.getNome() + ","
+                        + QString::number(a.getQuantidade()) + ","
+                        + QString::number(a.getPreco()) + ","
                         + "\n";
 
         arquivo.write(linha.toLocal8Bit());
@@ -450,9 +492,9 @@ void Listas::on_btnSalvarListaTarefas_clicked()
         if(a.getCheck()) check = "V";
         else check = "F";
 
-        QString linha = check + ";"
-                        + QString::number(a.getId()) + ";"
-                        + a.getNome() + ";"
+        QString linha = check + ","
+                        + QString::number(a.getId()) + ","
+                        + a.getNome() + ","
                         + "\n";
 
         arquivo.write(linha.toLocal8Bit());

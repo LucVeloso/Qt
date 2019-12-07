@@ -368,11 +368,11 @@ color: rgb(255, 255, 255);</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSalvarListaCompras">
+         <widget class="QPushButton" name="btnSalvarListaComprasTemplate">
           <property name="maximumSize">
            <size>
-            <width>90</width>
-            <height>16777215</height>
+            <width>100</width>
+            <height>25</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -381,7 +381,25 @@ border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
-           <string>Salvar</string>
+           <string>Salvar template</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSalvarListaCompras">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(5, 68, 94);
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Salvar lista</string>
           </property>
          </widget>
         </item>
@@ -445,15 +463,15 @@ color: rgb(255, 255, 255);</string>
      <widget class="QPushButton" name="btnAddCompras">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>480</x>
         <y>510</y>
-        <width>90</width>
+        <width>100</width>
         <height>25</height>
        </rect>
       </property>
       <property name="maximumSize">
        <size>
-        <width>90</width>
+        <width>100</width>
         <height>16777215</height>
        </size>
       </property>
@@ -470,8 +488,8 @@ color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>538</y>
-        <width>561</width>
+        <y>537</y>
+        <width>560</width>
         <height>10</height>
        </rect>
       </property>
@@ -528,7 +546,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -552,7 +570,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -576,7 +594,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -758,11 +776,11 @@ color: rgb(255, 255, 255);</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSalvarListaTarefas">
+         <widget class="QPushButton" name="btnSalvarListaTarefasTemplate">
           <property name="maximumSize">
            <size>
-            <width>90</width>
-            <height>16777215</height>
+            <width>100</width>
+            <height>25</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -771,7 +789,25 @@ border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
-           <string>Salvar</string>
+           <string>Salvar template</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSalvarListaTarefas">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(5, 68, 94);
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Salvar lista</string>
           </property>
          </widget>
         </item>
@@ -815,15 +851,15 @@ color: rgb(255, 255, 255);</string>
      <widget class="QPushButton" name="btnAddTarefas">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>480</x>
         <y>510</y>
-        <width>90</width>
+        <width>100</width>
         <height>25</height>
        </rect>
       </property>
       <property name="maximumSize">
        <size>
-        <width>90</width>
+        <width>100</width>
         <height>16777215</height>
        </size>
       </property>
@@ -892,7 +928,7 @@ color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>552</y>
+        <y>550</y>
         <width>561</width>
         <height>27</height>
        </rect>
@@ -937,7 +973,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -961,7 +997,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -985,7 +1021,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>16777215</height>
           </size>
          </property>
@@ -1003,8 +1039,8 @@ color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>540</y>
-        <width>561</width>
+        <y>537</y>
+        <width>560</width>
         <height>10</height>
        </rect>
       </property>
@@ -1113,11 +1149,228 @@ color: rgb(255, 255, 255);</string>
        <attribute name="title">
         <string>Templates</string>
        </attribute>
+       <widget class="QTableWidget" name="tabelaMostrarTemplateCompras">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>240</width>
+          <height>410</height>
+         </rect>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Nome</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTableWidget" name="tabelaMostrarTemplateTarefas">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>50</y>
+          <width>240</width>
+          <height>410</height>
+         </rect>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Nome</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="Line" name="line_7">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>20</y>
+          <width>21</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="TituloTemplateCompras">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>240</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>COMPRAS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="TituloTemplateCompras_2">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>20</y>
+          <width>240</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>TAREFAS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Salvos</string>
+        <string>Listas Salvas</string>
        </attribute>
+       <widget class="Line" name="line_8">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>20</y>
+          <width>21</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="TituloSalvosCompras">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>240</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>COMPRAS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tabelaMostrarSalvosCompras">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>240</width>
+          <height>410</height>
+         </rect>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Nome</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLabel" name="TituloSalvosTarefas">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>20</y>
+          <width>240</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>TAREFAS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tabelaMostrarSalvosTarefas">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>50</y>
+          <width>240</width>
+          <height>410</height>
+         </rect>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Nome</string>
+         </property>
+        </column>
+       </widget>
       </widget>
      </widget>
     </widget>
