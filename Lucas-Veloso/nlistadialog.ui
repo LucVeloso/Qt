@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(212, 241, 244)</string>
+  </property>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
@@ -66,11 +69,15 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="NomeEnt"/>
+     <widget class="QLineEdit" name="NomeEnt">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>21</x>
@@ -92,12 +99,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>100</height>
+          <width>120</width>
+          <height>120</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/icones/checkbox.png);</string>
+         <string notr="true">background-color: rgb(5, 68, 94);
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+</string>
         </property>
         <property name="text">
          <string/>
@@ -129,7 +139,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -151,12 +161,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>100</height>
+          <width>120</width>
+          <height>120</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/icones/cart.png);</string>
+         <string notr="true">background-color: rgb(5, 68, 94);
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+</string>
         </property>
         <property name="text">
          <string/>

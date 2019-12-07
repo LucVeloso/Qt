@@ -13,6 +13,8 @@
 #include <QMessageBox>
 #include <QStringList>
 #include <QFileDialog>
+#include <QDir>
+#include <QStandardPaths>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Listas; }
@@ -76,23 +78,33 @@ private slots:
 
     void on_btn_home_ListasSalvas_clicked();
 
+    void on_btnSalvarListaComprasTemplate_clicked();
+
+    void on_btnSalvarListaTarefasTemplate_clicked();
+
+    void on_tabelaMostrarSalvosCompras_cellDoubleClicked(int row, int column);
+
+    void on_tabelaMostrarSalvosTarefas_cellDoubleClicked(int row, int column);
+
 private:
     Ui::Listas *ui;
-    //Tarefa tEnt;
+
+    QString pastaComprasSalvas;
+    QString pastaTarefasSalvas;
+    QString pastaComprasTemplate;
+    QString pastaTarefasTemplate;
+
     bool salvo;
     bool add;
 
     int idCompras = 0;
     int idTarefas = 0;
 
-    QString caminho;
-    QString caminhoPastaCompras;
-    QString caminhoPastaTCompras;
-    QString caminhoPastaTarefas;
-    QString caminhoPastaTTarefas;
     QString nomeArquivoAtual;
 
     QMap<QString, QVector<Tarefa>> tarefas;
     QMap<QString, QVector<Compras>> compras;
+    QMap<QString, QVector<Tarefa>> templatesTarefas;
+    QMap<QString, QVector<Compras>> templatesCompras;
 };
 #endif // LISTAS_H
