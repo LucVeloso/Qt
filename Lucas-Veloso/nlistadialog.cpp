@@ -1,7 +1,7 @@
 #include "nlistadialog.h"
 #include "ui_nlistadialog.h"
 
-
+#include <QDebug>
 
 NListaDialog::NListaDialog(QWidget *parent) :
     QDialog(parent),
@@ -24,28 +24,37 @@ NListaDialog::NListaDialog(QWidget *parent) :
     ui->btnNListaTarefas->setIconSize(QSize(100, 100));
 }
 
+NListaDialog::~NListaDialog()
+{
+    delete ui;
+}
+
 bool NListaDialog::validCompras(QString nome){
-    if(nome.size() < 3)
-        for(auto c : compras.keys()) if(c == nome) return false;
+
+    for(auto c : compras.toStdMap()){
+
+        if(c.first == nome) return false;
+    }
+    if(nome.size() < 3) return false;
     else return true;
 }
 
 bool NListaDialog::validTarefas(QString nome){
-    if(nome.size() < 3)
-        for(auto c : compras.keys()) if(c == nome) return false;
-    else return true;
-}
 
-NListaDialog::~NListaDialog()
-{
-    delete ui;
+    qDebug() << compras.size();
+    for(auto t : tarefas.toStdMap()){
+
+        if(t.first == nome) return false;
+    }
+    if(nome.size() < 3) return false;
+    else return true;
 }
 
 void NListaDialog::on_btnNListaCompras_clicked()
 {
 
     tipo = 'c';
-    nomeNLista = ui->NomeEnt->text();
+    nomeNLista = ui->NomeEnt->text().toUpper();
 
     if(validCompras(nomeNLista)){
 
@@ -63,7 +72,7 @@ void NListaDialog::on_btnNListaTarefas_clicked()
 {
 
     tipo = 't';
-    nomeNLista = ui->NomeEnt->text();
+    nomeNLista = ui->NomeEnt->text().toUpper();
     if(validTarefas(nomeNLista)){
 
         novo = true;
